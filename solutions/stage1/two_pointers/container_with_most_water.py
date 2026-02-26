@@ -10,7 +10,17 @@ class Solution:
         3. 为了寻找更高的高度来弥补底部的缩减，你应该移动“较长”的那根线还是“较短”的那根线？
         """
         # 请根据“对撞指针”思维模式在此完善代码
-        pass
+        left, right = 0, len(height) - 1
+        max_area = 0
+        while left < right:
+            width = right - left
+            h = min(height[left], height[right])
+            max_area = max(max_area, width * h)
+            if height[left] < height[right]:
+                left += 1
+            else:
+                right -= 1
+        return max_area
 
 if __name__ == "__main__":
     sol = Solution()
