@@ -16,7 +16,14 @@ class Solution:
         3. “快”指针应该比“慢”指针快多少步最稳妥？
         """
         # 请根据“快慢指针/套圈”思维模式在此完善代码
-        pass
+        slow = head
+        fast = head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            if slow == fast:
+                return True
+        return False
 
 if __name__ == "__main__":
     # 创建带环链表用于测试: 3 -> 2 -> 0 -> -4 -> (back to 2)
