@@ -19,7 +19,40 @@ class Solution:
         注意：Python 中字典可以直接用 == 比较，这非常方便！
         """
         # 请根据“滑动窗口/固定窗口”思维模型在此完善代码
-        pass
+        left = 0
+        right = 0
+        p_count = {}  # 目标字符串 p 的字符频率
+        s_count = {}  # 当前窗口 s[left:right+1] 的字符频率
+        result = []   # 结果列表
+        
+        # 统计目标字符串 p 的字符频率
+        for char in p:
+            p_count[char] = p_count.get(char, 0) + 1
+        
+        # 滑动窗口
+        while right < len(s):
+            # 右指针向右移动，将当前元素加入当前窗口的频率统计
+            s_count[s[right]] = s_count.get(s[right], 0) + 1
+            
+            # 当窗口大小大于 p 的长度时，需要收缩窗口
+            if right - left + 1 > len(p):
+                # 左指针向右移动，将当前元素从窗口的频率统计中移除
+                s_count[s[left]] -= 1
+                # 如果某个字符的频率变为 0，将其从字典中移除
+                if s_count[s[left]] == 0:
+                    del s_count[s[left]]
+                left += 1
+            
+            # 当窗口大小等于 p 的长度时，检查是否为异位词
+            if right - left + 1 == len(p):
+                # 如果当前窗口的字符频率与 p 的字符频率相同，则找到一个异位词
+                if s_count == p_count:
+                    result.append(left)
+            
+            # 右指针向右移动
+            right += 1
+        
+        return result
 
 if __name__ == "__main__":
     sol = Solution()
