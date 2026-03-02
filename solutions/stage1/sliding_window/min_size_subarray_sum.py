@@ -14,18 +14,26 @@ class Solution:
         注意：如果整个数组加起来都不到 target，应该返回 0。
         """
         # 请根据“滑动窗口/寻找最短”思维模型在此完善代码
+        # 初始化左指针
         left = 0
+        # 初始化右指针
         right = 0
+        # 初始化当前窗口的和
         current_sum = 0
         # 记录最小长度，初始值设置一个很大的数正无穷
         min_length = float('inf')
+        # 右指针遍历数组
         while right < len(nums):
+            # 右指针向右移动，将当前元素加入当前窗口的和
             current_sum += nums[right]
+            # 当当前窗口的和大于等于target时，记录当前窗口的长度，并尝试收缩窗口
             while current_sum >= target:
                 min_length = min(min_length, right - left + 1)
                 current_sum -= nums[left]
                 left += 1
+            # 右指针向右移动
             right += 1
+        # 如果最小长度还是正无穷，说明没有找到满足条件的窗口，返回0
         return min_length if min_length != float('inf') else 0
 
 if __name__ == "__main__":
