@@ -33,6 +33,8 @@ class Solution:
         while right < len(s):
             # 右指针向右移动，将当前元素加入当前窗口的频率统计
             s_count[s[right]] = s_count.get(s[right], 0) + 1
+            # s_count.get(s[right], 0)的技巧解释：
+            # 去账本查一下 s[right] 出现了几次，没找着就按 0 次算，然后在这个基础上加 1，再记回账本里。
             
             # 当窗口大小大于 p 的长度时，需要收缩窗口
             if right - left + 1 > len(p):
