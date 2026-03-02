@@ -14,7 +14,19 @@ class Solution:
         注意：如果整个数组加起来都不到 target，应该返回 0。
         """
         # 请根据“滑动窗口/寻找最短”思维模型在此完善代码
-        pass
+        left = 0
+        right = 0
+        current_sum = 0
+        # 记录最小长度，初始值设置一个很大的数正无穷
+        min_length = float('inf')
+        while right < len(nums):
+            current_sum += nums[right]
+            while current_sum >= target:
+                min_length = min(min_length, right - left + 1)
+                current_sum -= nums[left]
+                left += 1
+            right += 1
+        return min_length if min_length != float('inf') else 0
 
 if __name__ == "__main__":
     sol = Solution()
