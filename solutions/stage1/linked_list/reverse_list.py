@@ -19,7 +19,21 @@ class Solution:
         5. 循环：直到 cur 为空，此时 pre 就是原来的末尾，也就是现在的头。
         """
         # 请根据“链表手术/三指针”思维模型在此完善代码
-        pass
+        # 初始化前指针
+        pre = None
+        # 初始化当前指针
+        cur = head
+        # 循环直到当前指针为空
+        while cur:
+            # 救命：先拿个变量 tmp 拽住它的下一个节点
+            tmp = cur.next
+            # 转向：让 cur 指向它的“前任”
+            cur.next = pre
+            # 接力：整体向后挪一步
+            pre = cur
+            cur = tmp
+        # 返回反转后的链表头
+        return pre
 
 def print_list(head: Optional[ListNode]):
     """辅助函数：打印链表内容以验证结果"""
