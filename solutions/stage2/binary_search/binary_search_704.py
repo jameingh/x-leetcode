@@ -15,7 +15,19 @@ class Solution:
         4. 结算：当 left 超过 right 时，说明翻遍了也没找着，返回 -1。
         """
         # 请根据“二分搜索/一刀两断”思维模型在此完善代码
-        pass
+        left, right = 0, len(nums) - 1
+        while left <= right:
+            # //用于向下取整
+            # 为什么python中不需要left + (right - left) // 2？
+            # 因为python的整数没有溢出的问题
+            mid = (left + right) // 2
+            if nums[mid] == target:
+                return mid
+            elif nums[mid] < target:
+                left = mid + 1
+            else:
+                right = mid - 1
+        return -1
 
 if __name__ == "__main__":
     sol = Solution()
