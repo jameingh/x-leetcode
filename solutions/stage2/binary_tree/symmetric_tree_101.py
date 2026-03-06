@@ -25,18 +25,23 @@ class Solution:
            - 如果两个分身都走到了空地（None）：说明之前一直都匹配，返回 True。
            - 如果只有一个分身走到了空地，或者两人脚下的值不一样：这门亲事黄了，返回 False。
         """
+        # 空节点
         if not root:
             return True
         return self.check(root.left, root.right)
 
     def check(self, node1: Optional[TreeNode], node2: Optional[TreeNode]) -> bool:
         # 请根据“双分身同步探测”思维模型在此完善代码
+        # 终止条件：空节点
         if not node1 and not node2:
             return True
+        # 终止条件：空节点
         if not node1 or not node2:
             return False
+        # 终止条件：值不相等
         if node1.val != node2.val:
             return False
+        # 递归调用：左路或者右路
         return self.check(node1.left, node2.right) and self.check(node1.right, node2.left)
 
 if __name__ == "__main__":

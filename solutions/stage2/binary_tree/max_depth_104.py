@@ -23,12 +23,15 @@ class Solution:
         4. 边界条件（撤退时刻）：如果你发现自己是空节点（手下没人了），汇报 0。
         """
         # 请根据“主管汇报/递归汇总”思维模型在此完善代码
+        # 终止条件：空节点
         if not root: # if root is None:
             return 0
         
+        # 递归调用：左路或者右路
         left_depth = self.maxDepth(root.left)
         right_depth = self.maxDepth(root.right)
         
+        # 汇总向上级汇报：由于各部门是并行的，取两边最深的那个，加上你自己这一层。
         return 1 + max(left_depth, right_depth)
 
 if __name__ == "__main__":

@@ -24,7 +24,11 @@ class Solution:
         💡 进阶思考：这和计算“最大深度”有什么异曲同工之妙？
         """
         # 请根据“主管汇总”思维模型在此完善代码
-        pass
+        # 终止条件：空节点
+        if not root:
+            return 0
+        # 递归调用：左路或者右路
+        return self.countNodes(root.left) + self.countNodes(root.right) + 1
 
 if __name__ == "__main__":
     sol = Solution()
