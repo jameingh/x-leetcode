@@ -31,7 +31,16 @@ class Solution:
         4. 边界条件（撤退时刻）：如果你手下没人（`not root`），这道命令就传不下去了，直接返回 None 结束命令。
         """
         # 请根据“主管下命令”的思维模型在此完善代码
-        pass
+        if not root:
+            return None
+        
+        # 先调换部门再下命令
+        root.left, root.right = root.right, root.left  # python语法糖，会先计算等号右边的内容打包到一个元组，再依次赋值给左边的变量，所以这里不需要临时变量
+        
+        self.invertTree(root.left)
+        self.invertTree(root.right)
+        
+        return root
 
 if __name__ == "__main__":
     sol = Solution()
