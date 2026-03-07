@@ -18,15 +18,23 @@ class Solution:
         
         # 1. 终止条件：走到空位了。这里就是要“建房子”的地方。
         # 返回一个包含新值的新节点。
-        pass
+        if not root:
+            return TreeNode(val)
             
         # 2. 单边向左下探：如果 val 比当前节点小，说明它该去左边找空位
         # 注意：你需要把当前节点的左指针，重新连到右侧返回的结果上！
-        pass
+        if val < root.val:
+            root.left = self.insertIntoBST(root.left, val)
         
         # 3. 单边向右下探：如果 val 比当前节点大，说明它该去右边找空位
         # 注意：你需要把当前节点的右指针，重新连到右侧返回的结果上！
-        pass
+        if val > root.val:
+            root.right = self.insertIntoBST(root.right, val)
+
+        # 题目描述说了val是新值，如果 val 已经存在于树中该怎么办，
+        # 按照 BST 的定义，如果 val 已经存在于树中，那么它应该被插入到
+        # 已经存在的值的右子树中。
+        
         
         # 最后别忘了返回当前节点，保持树的链条不折断
         return root
