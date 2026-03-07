@@ -20,15 +20,17 @@ class Solution:
         # 内部定义一个带“区间约束”的辅助递归函数
         def validate(node, min_val, max_val):
             # 1. 终止条件：查到了空节点，说明这条路没发现违规的。返回 True。
-            pass
+            if not node:
+                return True
             
             # 2. 查岗动作：当前节点的数值，有没有越界？（<= 最小值，或者 >= 最大值都是违规）
-            pass
+            if node.val <= min_val or node.val >= max_val:
+                return False
             
             # 3. 约束下放：
             #    去查左子树吧！记住，最大值不能超过我当前的 val！
             #    去查右子树吧！记住，最小值不能低于我当前的 val！
-            pass
+            return validate(node.left, min_val, node.val) and validate(node.right, node.val, max_val)
             
         # 初始召唤：根节点没有任何约束，大小可以无限上天下地 (float('-inf'), float('inf'))
         return validate(root, float('-inf'), float('inf'))
