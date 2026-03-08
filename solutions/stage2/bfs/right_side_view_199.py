@@ -39,7 +39,8 @@ class Solution:
                 # 如果遇到了，请把它收集到 result 中！
                 
                 # [你的核心逻辑代码填在这里]
-                pass
+                if i == level_size - 1:
+                    result.append(node.val)
                 
                 # 5. 把下一层波纹（左右下属）推入队尾排队
                 if node.left:
