@@ -46,11 +46,13 @@ class Solution:
             # 你该对 current_level_values 做什么处理，再把它放进 result 里？
             
             # [你的核心逻辑代码填在这里]
-            
+            if not is_left_to_right:
+                current_level_values.reverse()
             
             # 操作完别忘了：一层的业务办完了，下一层必须掉头！
             # 请反转 is_left_to_right 的状态
-            
+            is_left_to_right = not is_left_to_right
+            result.append(current_level_values)
             
         return result
 
