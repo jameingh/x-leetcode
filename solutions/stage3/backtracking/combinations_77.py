@@ -20,22 +20,22 @@ class Solution:
 
         def backtracking(start_index):
             # 💡 终止条件：什么时候说明这一条路走通了？
-            # [请在此处填入逻辑]
-            pass
+            if len(path) == k:
+                result.append(path[:])
+                return
 
             # 💡 横向遍历：从 start_index 开始，到 n 结束
             # 为什么不是每次都从 1 开始跑？想想重复的问题。
             for i in range(start_index, n + 1):
                 # 1. 做决定：把当前数加入路径
-                # [请在此处填入逻辑]
+                path.append(i)
                 
                 # 2. 纵向深入：下一层决策树该从哪个位置开始找？
-                # [请在此处填入逻辑]
+                backtracking(i + 1)
                 
                 # 3. 撤销决定（后悔药）：这是回溯的精髓！
                 # 当递归回来时，必须把刚才加进去的数踢出来，保持现场干净。
-                # [请在此处填入逻辑]
-                pass
+                path.pop()
 
         backtracking(1)
         return result
