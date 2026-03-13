@@ -24,9 +24,13 @@
 - **模板内容**：包含必要的类和方法定义、题目描述、针对该题目思维模型的引导注释，以及**一个包含基础测试用例的 `if __name__ == "__main__":` 执行块**。
 - **目标**：用户应只需将精力集中在“填入核心代码实现”上，并能直接运行文件通过控制台输出来验证对错，而无需关心琐碎的文件创建和脚手架编写。
 
-### D. 文档持久化
+### D. 文档持久化与多端同步
 - **同步更新**：对话中产生的所有重要学习笔记、思维引导内容，必须同步保存到项目根目录下的 `learning/` 文件夹中。
-- **结构保持**：遵循 `learning/syllabus.md`（总纲）和分阶段专题笔记的目录结构。
+- **强制同步项**：每当一个专题完成（Milestone）或产生核心反思时，AI 助手必须确保以下三处实时一致：
+    1. **[walkthrough.md](file:///Users/akm/Documents/x-leetcode/walkthrough.md)**：更新实战战报、心法沉淀及当前学习阶段标签。
+    2. **[learning/syllabus.md](file:///Users/akm/Documents/x-leetcode/learning/syllabus.md)**：更新专题状态（如标记为“大圆满 🎉”）及跳转链接。
+    3. **[learning/README.md](file:///Users/akm/Documents/x-leetcode/learning/README.md)**：更新目录结构，确保新产生的笔记被正确索引。
+- **结构保持**：严格遵循项目目录逻辑，禁止在 `brain/` 等隐藏目录中“孤立”存储关键知识。
 
 ## 3. 编程语言习惯
 - **Python 3**：后续实现代码一律使用 Python，保持风格一致。
