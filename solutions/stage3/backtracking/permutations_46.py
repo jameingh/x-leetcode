@@ -29,7 +29,8 @@ class Solution:
                 return
 
             for i in range(len(nums)):
-                # 如果这个数字已经被用过了，跳过它（继续找下一个能用的）
+                # 💡 核心思考：
+                # 如果这个数字已经被用过了，该怎么办？（看 used[i]）
                 if used[i]:
                     continue
                 

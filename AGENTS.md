@@ -30,6 +30,8 @@
     1. **[walkthrough.md](file:///Users/akm/Documents/x-leetcode/walkthrough.md)**：更新实战战报、心法沉淀及当前学习阶段标签。
     2. **[learning/syllabus.md](file:///Users/akm/Documents/x-leetcode/learning/syllabus.md)**：更新专题状态（如标记为“大圆满 🎉”）及跳转链接。
     3. **[learning/README.md](file:///Users/akm/Documents/x-leetcode/learning/README.md)**：更新目录结构，确保新产生的笔记被正确索引。
+- **内容守恒原则**：严禁在更新现有文档时误删已有的“行动指南”、“里程碑战果”或“核心思维沉淀”。更新操作应采用“增量式覆盖”或“精准局部修改”，绝对禁止覆盖同级的无关章节。
+- **结构化自检**：在执行 `replace_file_content` 之后，AI 助手应通过检索或观察自查关键目录（如 `## 行动指南`）是否仍然完整且未被误删。
 - **结构保持**：严格遵循项目目录逻辑，禁止在 `brain/` 等隐藏目录中“孤立”存储关键知识。
 
 ## 3. 编程语言习惯
