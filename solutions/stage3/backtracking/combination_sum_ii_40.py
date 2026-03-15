@@ -20,6 +20,12 @@ class Solution:
         candidates.sort()
 
         def backtracking(start_index, current_sum):
+            # 如果current_sum已经大于target，后面的数字再选也不会中头奖
+            # 所以可以直接返回，避免继续递归
+            if current_sum > target:
+                return
+            # 如果current_sum已经大于target，设置一个标记，不再处理当前层的后续数字
+            over_target_flag = False
             # 终止条件 1：中头奖了
             if current_sum == target:
                 result.append(path[:])
@@ -27,19 +33,24 @@ class Solution:
             
             # 终止条件 2：超重了（这本身就是一种基础剪枝）
             if current_sum > target:
+                over_target_flag = True
                 return
-
+            
+            # start_index 是当前层的起始索引
             for i in range(start_index, len(candidates)):
                 # 💡 核心剪枝逻辑：树层去重
                 # 如果当前数和前一个数相同，且我们处于“同一层”循环（i > start_index）
                 # 说明这个数字开启的分支我们已经搜过了，直接跳过。
-                
-                # [请在此处填入去重剪枝逻辑]
-                
-                
-                # [请在此处填入标准的做选择、递归、回溯逻辑]
-                # 提示：current_sum 也要记得更新哦
-                pass
+                if i > start_index and candidates[i] == candidates[i-1]:
+                    continue
+                if over_target_flag:
+                    continue
+                # 标准的做选择、递归、回溯逻辑
+                path.append(candidates[i])
+                current_sum += candidates[i]
+                backtracking(i+1, current_sum)
+                path.pop()
+                current_sum -= candidates[i]
 
         backtracking(0, 0)
         return result
