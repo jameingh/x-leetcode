@@ -62,13 +62,16 @@ class Solution:
             # TODO 1: 在这里记录当前子集
             # 提示：每个节点都是答案，所以进入递归就先记录
             # 记得用 path[:] 拍照存证！
-            pass
+            result.append(path[:])
             
             # TODO 2: 填写 for 循环
             # 提示：范围是 [startIndex, n)
             # 循环内：做选择 -> 递归 -> 撤销选择
             # 递归时传递 i + 1，表示不能回头
-            pass
+            for i in range(startIndex, n):
+                path.append(nums[i])
+                backtrack(i + 1)
+                path.pop()
         
         backtrack(0)
         return result
