@@ -28,20 +28,17 @@ class Solution:
                 result.append(path[:])
                 return
 
-            # 💡 横向遍历：从 start_index 开始，到 n 结束
-            # 为什么不是每次都从 1 开始跑？想想重复的问题。
-            # 遍历从 start_index 开始到 n 的所有数字
-            for i in range(start_index, n + 1):
-                # 1. 做决定：把当前数加入路径
+            # 💡 横向遍历：从 start_index 开始
+            # 【核心剪枝逻辑】：如果剩余的可选元素数量不够凑齐 k 个，就没必要再搜索了。
+            # 1. 还需要几个数？ needed = k - len(path)
+            # 2. 至多从哪开始？ n - (k - len(path)) + 1
+            # 3. range 停止位（左闭右开）：n - (k - len(path)) + 2
+            for i in range(start_index, n - (k - len(path)) + 2):
+                # 1. 做决定
                 path.append(i)
-                
-                # 2. 纵向深入：下一层决策树该从哪个位置开始找？
-                # 传递 i + 1，表示下一层从 i 的下一个位置开始找
+                # 2. 纵向深入
                 backtracking(i + 1)
-                
-                # 3. 撤销决定（后悔药）：这是回溯的精髓！
-                # 当递归回来时，必须把刚才加进去的数踢出来，保持现场干净。
-                # 弹出最后一个元素，回溯到上一层
+                # 3. 撤销决定
                 path.pop()
 
         # 从 1 开始回溯
