@@ -15,28 +15,36 @@ class Solution:
            我们需要一个 `startIndex`，保证每次只能往后选。
         3. 终止条件：路径长度 == k。
         """
+        # 存放最终结果
         result = []
+        # 存放当前路径
         path = []
 
+        # 回溯函数
         def backtracking(start_index):
             # 💡 终止条件：什么时候说明这一条路走通了？
+            # 当路径长度等于 k 时，说明找到了一个组合
             if len(path) == k:
                 result.append(path[:])
                 return
 
             # 💡 横向遍历：从 start_index 开始，到 n 结束
             # 为什么不是每次都从 1 开始跑？想想重复的问题。
+            # 遍历从 start_index 开始到 n 的所有数字
             for i in range(start_index, n + 1):
                 # 1. 做决定：把当前数加入路径
                 path.append(i)
                 
                 # 2. 纵向深入：下一层决策树该从哪个位置开始找？
+                # 传递 i + 1，表示下一层从 i 的下一个位置开始找
                 backtracking(i + 1)
                 
                 # 3. 撤销决定（后悔药）：这是回溯的精髓！
                 # 当递归回来时，必须把刚才加进去的数踢出来，保持现场干净。
+                # 弹出最后一个元素，回溯到上一层
                 path.pop()
 
+        # 从 1 开始回溯
         backtracking(1)
         return result
 
