@@ -27,12 +27,20 @@
 ### D. 文档持久化与多端同步
 - **同步更新**：对话中产生的所有重要学习笔记、思维引导内容，必须同步保存到项目根目录下的 `learning/` 文件夹中。
 - **强制同步项**：每当一个专题完成（Milestone）或产生核心反思时，AI 助手必须确保以下三处实时一致：
-    1. **[walkthrough.md](file:///Users/akm/Documents/x-leetcode/walkthrough.md)**：更新实战战报、心法沉淀及当前学习阶段标签。
-    2. **[learning/syllabus.md](file:///Users/akm/Documents/x-leetcode/learning/syllabus.md)**：更新专题状态（如标记为“大圆满 🎉”）及跳转链接。
-    3. **[learning/README.md](file:///Users/akm/Documents/x-leetcode/learning/README.md)**：更新目录结构，确保新产生的笔记被正确索引。
+    1. **[walkthrough.md](walkthrough.md)**：更新实战战报、心法沉淀及当前学习阶段标签。
+    2. **[learning/syllabus.md](learning/syllabus.md)**：更新专题状态（如标记为“大圆满 🎉”）及跳转链接。
+    3. **[learning/README.md](learning/README.md)**：更新目录结构，确保新产生的笔记被正确索引。
 - **内容守恒原则**：严禁在更新现有文档时误删已有的“行动指南”、“里程碑战果”或“核心思维沉淀”。更新操作应采用“增量式覆盖”或“精准局部修改”，绝对禁止覆盖同级的无关章节。
 - **结构化自检**：在执行 `replace_file_content` 之后，AI 助手应通过检索或观察自查关键目录（如 `## 行动指南`）是否仍然完整且未被误删。
 - **结构保持**：严格遵循项目目录逻辑，禁止在 `brain/` 等隐藏目录中“孤立”存储关键知识。
+
+### E. 可视化与图示规范
+- **命名规范**：引导性或可视化文档的文件名必须包含对应的 LeetCode 题号（例如 `combination_sum_ii_40_visual.md`），严禁使用 `visual_guide.md` 等含糊名称，以便用户快速索引。
+- **Mermaid 标准化**：所有流程图、决策树必须使用 Mermaid **标准语法**。严禁使用 `--X` 等不兼容的自定义箭头，统一使用 `-->` 并在标签中通过文字（如 `[剪枝]`）标注。
+- **文档方案平铺化**：放置在项目目录（如 `learning/`）下的引导文档必须采用 **“平铺式结构”**（通过一级/二级标题和分割线分隔），禁止直接在项目源文件中使用 `carousel` 等 AI 专属私有语法，以确保用户在 IDE 中能直接预览。
+
+### F. 算法实现最优性
+- **回溯剪枝准则**：在处理有序数组的搜索问题时，应优先采用 **“循环内 break”** 的强力剪枝逻辑（例如 `if current_sum + candidates[i] > target: break`），而非低效的 `continue` 或入口判断。
 
 ## 3. 编程语言习惯
 - **Python 3**：后续实现代码一律使用 Python，保持风格一致。
