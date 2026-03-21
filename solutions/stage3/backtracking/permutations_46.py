@@ -17,17 +17,24 @@ class Solution:
         2. 选择列表：nums 中还没有被选进 path 的数。
         3. 状态标记：我们需要一种方式（比如一个 set 或 bool 数组）快速知道某个数是否“已在阵中”。
         """
+        # 存放最终结果
         result = []
+        # 存放当前路径
         path = []
         # 用来标记已经选过的数字
         used = [False] * len(nums)
 
+        # 回溯函数
         def backtracking():
             # 💡 终止条件：当 path 长度和 nums 相等，说明一个排列完成了
             if len(path) == len(nums):
                 result.append(path[:])
                 return
 
+            # 遍历从 0 开始到 n 结束
+            # 💡 为什么不设置 startIndex？
+            # 因为排列是顺序相关的，[1, 2] 和 [2, 1] 都要搜出来。
+            # 如果从 startIndex 开始，选了 2 就再也看不见 1 了。
             for i in range(len(nums)):
                 # 💡 核心思考：
                 # 如果这个数字已经被用过了，该怎么办？（看 used[i]）
