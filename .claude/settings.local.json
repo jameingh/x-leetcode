@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python solutions/stage3/backtracking/subsets_78.py)",
+      "Bash(python3 solutions/stage3/backtracking/subsets_78.py)",
+      "Bash(npx:*)",
+      "Bash(find:*)",
+      "Bash(rmdir:*)",
+      "Bash(claude:*)",
+      "WebSearch",
+      "Read(//Users/akm/.claude/**)",
+      "Read(//Users/akm/.config/claude/**)",
+      "Bash(echo:*)"
+    ]
+  }
+}
