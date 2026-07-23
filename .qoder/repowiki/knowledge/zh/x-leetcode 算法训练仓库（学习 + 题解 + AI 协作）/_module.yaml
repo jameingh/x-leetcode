@@ -1,0 +1,12 @@
+schema_version: 1
+module_path: ""
+title: x-leetcode 算法训练仓库（学习 + 题解 + AI 协作）
+scope:
+    - README.md
+    - AGENTS.md
+    - CLAUDE.md
+    - skills-lock.json
+    - walkthrough.md
+source_files: []
+depends_on: []
+related_to: []

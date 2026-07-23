@@ -1,0 +1,58 @@
+# 知识卡导出索引文件
+schema_version: 1
+locale: zh-CN
+branch: main
+nodes_managed: true
+exported_at: "2026-07-23T13:38:34Z"
+modules:
+    "":
+        dir_name: x-leetcode 算法训练仓库（学习 + 题解 + AI 协作）
+        title: x-leetcode 算法训练仓库（学习 + 题解 + AI 协作）
+        scope:
+            - README.md
+            - AGENTS.md
+            - CLAUDE.md
+            - skills-lock.json
+            - walkthrough.md
+        source_files: []
+        children:
+            - agent_skills
+            - learning_notes
+            - leetcode_solutions
+        depends_on: []
+        related_to: []
+    agent_skills:
+        dir_name: 多 Agent 平台 Skills 与钩子配置
+        title: 多 Agent 平台 Skills 与钩子配置
+        scope:
+            - .claude/
+            - .gemini/
+            - .trae/
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: learning_notes
+            - path: leetcode_solutions
+    learning_notes:
+        dir_name: LeetCode 算法系统化学习笔记
+        title: LeetCode 算法系统化学习笔记
+        scope:
+            - learning/
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: agent_skills
+            - path: leetcode_solutions
+    leetcode_solutions:
+        dir_name: LeetCode 题解教程（分阶段数据结构与算法）
+        title: LeetCode 题解教程（分阶段数据结构与算法）
+        scope:
+            - solutions/
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: agent_skills
+            - path: learning_notes

@@ -1,0 +1,12 @@
+schema_version: 1
+module_path: agent_skills
+title: 多 Agent 平台 Skills 与钩子配置
+scope:
+    - .claude/
+    - .gemini/
+    - .trae/
+source_files: []
+depends_on: []
+related_to:
+    - path: learning_notes
+    - path: leetcode_solutions
