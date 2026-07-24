@@ -7,6 +7,4 @@ scope:
     - .trae/
 source_files: []
 depends_on: []
-related_to:
-    - path: learning_notes
-    - path: leetcode_solutions
+related_to: []

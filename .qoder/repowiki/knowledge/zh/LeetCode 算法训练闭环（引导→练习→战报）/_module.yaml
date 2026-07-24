@@ -1,6 +1,6 @@
 schema_version: 1
 module_path: ""
-title: x-leetcode 算法训练仓库（学习 + 题解 + AI 协作）
+title: LeetCode 算法训练闭环（引导→练习→战报）
 scope:
     - README.md
     - AGENTS.md

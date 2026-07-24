@@ -1,0 +1,8 @@
+schema_version: 1
+module_path: leetcode_solutions
+title: LeetCode 题解教程（按难度分阶段）
+scope:
+    - solutions/
+source_files: []
+depends_on: []
+related_to: []

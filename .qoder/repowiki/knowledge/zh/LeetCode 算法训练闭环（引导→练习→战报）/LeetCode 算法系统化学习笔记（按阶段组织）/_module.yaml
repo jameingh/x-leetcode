@@ -1,0 +1,8 @@
+schema_version: 1
+module_path: learning_notes
+title: LeetCode 算法系统化学习笔记（按阶段组织）
+scope:
+    - learning/
+source_files: []
+depends_on: []
+related_to: []
