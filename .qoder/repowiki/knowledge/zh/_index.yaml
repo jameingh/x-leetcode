@@ -3,11 +3,11 @@ schema_version: 1
 locale: zh-CN
 branch: main
 nodes_managed: true
-exported_at: "2026-07-23T14:21:03Z"
+exported_at: "2026-07-24T02:20:47Z"
 modules:
     "":
-        dir_name: LeetCode 算法训练闭环（引导→练习→战报）
-        title: LeetCode 算法训练闭环（引导→练习→战报）
+        dir_name: LeetCode 算法训练体系根编排层
+        title: LeetCode 算法训练体系根编排层
         scope:
             - README.md
             - AGENTS.md

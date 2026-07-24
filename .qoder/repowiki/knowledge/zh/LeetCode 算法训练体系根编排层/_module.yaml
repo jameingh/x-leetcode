@@ -1,6 +1,6 @@
 schema_version: 1
 module_path: ""
-title: LeetCode 算法训练闭环（引导→练习→战报）
+title: LeetCode 算法训练体系根编排层
 scope:
     - README.md
     - AGENTS.md
