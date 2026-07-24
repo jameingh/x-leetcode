@@ -33,8 +33,17 @@ class Solution:
         # 提示 3：从 2 循环到 len(cost)（含），每一格用 min 挑便宜的来源
         #
         # 提示 4：想挑战的话，直接用"滚动变量"写，别忘了"覆盖之前先保值"
-        pass
-
+        if len(cost) == 0:
+            return 0
+        if len(cost) == 1:
+            return 0
+        prev = 0
+        curr = 0
+        for i in range(2, len(cost) + 1):
+            temp = curr
+            curr = min(curr + cost[i-1], prev + cost[i-2])
+            prev = temp
+        return curr
 
 if __name__ == "__main__":
     solution = Solution()
